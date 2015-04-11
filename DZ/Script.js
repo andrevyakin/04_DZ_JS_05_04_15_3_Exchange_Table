@@ -11,55 +11,57 @@
 * */
 
 var t = document.getElementById("table");
-var tbody = document.createElement("tbody");
+
 var frequency;
 var timer;
 
+
 for(var i = 0;i<10;i++) {
 
-    var tr = document.createElement("tr");
+    var tr = document.createElement("TR");
+    t.appendChild(tr);
 
     for (var j = 0;j<10;j++){
-        var td = document.createElement("td");
+        var td = document.createElement("TD");
+        tr.appendChild(td);
 
         if (!i && !j) {
+            var text = document.createTextNode("¹ïï.");
+            td.appendChild(text);
             td.style.fontWeight = 700;
-            td.style.border = "solid";
+            td.style.border = "ridge 5px Snow";
             td.style.backgroundColor = "deepskyblue";
-            td.innerHTML = "¹ ïï."
         }
         else if (!i && j) {
+            text = document.createTextNode("Ôèðìà " + j);
+            td.appendChild(text);
             td.style.fontWeight = 700;
-            td.style.border = "solid";
+            td.style.border = "ridge 5px Snow";
             td.style.backgroundColor = "deepskyblue";
-            td.innerHTML = "Ôèðìà " + j;
         }
         else if (i && !j)
         {
+            text = document.createTextNode(i);
+            td.appendChild(text);
             td.style.fontWeight = 700;
-            td.style.border = "solid";
+            td.style.border = "ridge 5px Snow";
             td.style.backgroundColor = "deepskyblue";
-            td.innerHTML = i;
         }
         else {
+            text = document.createTextNode(Math.round(Math.random() * 1000));
+            td.appendChild(text);
+            td.style.border = "ridge 3px Snow";
             td.style.backgroundColor = "#A9A9A9";
-            td.innerHTML = Math.round(Math.random() * 1000);
         }
 
         if (i == 9)
-            td.style.borderBottom = "solid";
+            td.style.borderBottom = "ridge 5px Snow";
         if (j == 9)
-            td.style.borderRight = "solid";
+            td.style.borderRight = "ridge 5px Snow";
 
-
-        tr.appendChild(td);
     }
-    tbody.appendChild(tr);
+
 }
-
-t.appendChild(tbody);
-
-document.getElementById("table").appendChild(t);
 
 function Show ()
 {
